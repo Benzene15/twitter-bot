@@ -3,7 +3,7 @@ const pup= require('puppeteer');
 async function scrapeSite(url){
     const browser= await pup.launch();
     const page= await browser.newPage();
-    await page.goto(url) 
+    await page.goto(url); 
 
     const [el]= await page.$x('//*[@id="productTitle"]');
     const txt= await el.getProperty('textContent');

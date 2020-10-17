@@ -5,7 +5,7 @@ const pup= require('puppeteer');
 
 var Twitter= new Twit(config);
 
-/*async function scrapeScore(url){
+async function scrapeScore(url){
     const browser= await pup.launch();
     const page= await browser.newPage();
     await page.goto(url) 
@@ -67,30 +67,9 @@ var Twitter= new Twit(config);
     
     //return playing,team1,score1,team2,score2;
     
-} */
+} 
 
-async function scrapeDays(url){
-    const browser= await pup.launch();
-    const page= await browser.newPage();
-    await page.goto(url);
-    
-    
-    const [el]= await page.$x('//*[@id="time"]');
-    const txt= await el.getProperty('textContent');
-    var days= await txt.jsonValue();
-    
-    days=days.replace(/(\r\n|\n|\r)/gm,"");
-    //days=days.replace(" days",'');
-    console.log({days});
-    browser.close()
-    
-    var message= "Wow look at how the time flies! It's been ";
-    var secondHalf=days.concat(" since the  .@Yankees have won the World Series.");
-    var finalM=message.concat(secondHalf);
-    Twitter.post('statuses/update',{
-        status: finalM
-    })
-}
+
 
 var writeTweet = function (days){
     var message= "Wow look at how the time flies! It's been ";
@@ -104,8 +83,8 @@ var writeTweet = function (days){
     });
 }
 
-//var scoreList=scrapeScore("https://www.mlb.com/yankees/scores");
-var daysSinceYankeesWS=scrapeDays("https://datedatego.com/how-many-days-november-4-2009");
+var scoreList=scrapeScore("https://www.mlb.com/yankees/scores");
+
 //console.log(daysSinceYankeesWS);
 //writeTweet(daysSinceYankeesWS);
 

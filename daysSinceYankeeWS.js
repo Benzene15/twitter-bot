@@ -19,16 +19,20 @@ async function scrapeDays(url){
     browser.close()
     
     var daysInt=parseInt(days);
-    var messageIndex=Math.floor(Math.random()*10);
+    var messageIndex=Math.floor(Math.random()*3);
     var messageArray=["Wow look at how the time flies! It's been ",
-                        "What a beauitful day for the yankees not to win the World Series! It's Been ",
-                        "Damn  .@jomboy_ how"]
-    var message= messageArray[messageIndex]
+                        "What a beauitful day for the Yankees not to win the World Series! It's Been ",
+                        "Damn,  .@jomboy_ how does it feel "];
+    var message= messageArray[messageIndex];
     var secondHalf=days.concat(" since the  .@Yankees have won the World Series.");
     var finalM=message.concat(secondHalf);
     if(daysInt%69==0){
-        finalM.concat("Nice. "+daysInt+"=69"+"+"+(daysInt/69));
+        finalM=finalM.concat(" Nice. ");
+        finalM=finalM.concat(daysInt.toString());
+        finalM=finalM.concat(" = 69 * ");
+        finalM=finalM.concat((daysInt/69).toString());
     }
+    console.log(finalM);
     Twitter.post('statuses/update',{
         status: finalM
     })

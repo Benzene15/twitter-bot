@@ -204,6 +204,7 @@ async function scrapeScore(){
                             var message1 = message.concat(messageArray[messageIndex]);
                             var message2 = message1.concat(score);
                             console.log(message2);
+                            writeTweet(message2)
                         }
                         playingGame = false;
                         while(d1.getDate()==searchDate){

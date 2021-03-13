@@ -127,7 +127,11 @@ async function scrapeScore(url){
                 var message = "DAAAAAAAAAAAAAAAAA JANKEES LOSE! "
                 var message1 = message.concat(messageArray[messageIndex]);
                 var message2 = message1.concat("\n" + score);
+                console.log(message2);
                 writeTweet(message2);                
+            }
+            else{
+                console.log("Yankees won :(");
             }
             await sleep(36000000);
         }

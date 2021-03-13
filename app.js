@@ -85,9 +85,11 @@ async function scrapeScore(){
                         playingGame = false;
                         console.log("Yankees are not playing today")
                         while(d1.getDate()==searchDate){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                         while(d1.getHours()<8){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                     }
@@ -125,9 +127,11 @@ async function scrapeScore(){
                         }
                         playingGame = false;
                         while(d1.getDate() == searchDate){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                         while(d1.getHours()<8){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                     }
@@ -135,9 +139,11 @@ async function scrapeScore(){
                         playingGame = false;
                         console.log("Game is postponed")
                         while(d1.getDate()==searchDate){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                         while(d1.getHours()<8){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                     }
@@ -172,15 +178,16 @@ async function scrapeScore(){
                     if(team1[0]!="Y" && team2[0]!="Y"){
                         playingGame = false;
                         while(d1.getDate()==searchDate){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                         while(d1.getHours()<8){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                     }
                     else if(playing.includes("Final")){
                         [score1,score2] = await getScore(page);
-
                         var yankeeScore;
                         var otherScore;
                         var otherName;
@@ -209,18 +216,23 @@ async function scrapeScore(){
                         }
                         playingGame = false;
                         while(d1.getDate()==searchDate){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                         while(d1.getHours()<8){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                     }
                     else if(playing.includes("POSTPONED")){
                         playingGame = false;
+                        console.log("Game is postponed");
                         while(d1.getDate()==searchDate){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                         while(d1.getHours()<8){
+                            var d1 = new Date();
                             await sleep(1800000);
                         }
                     }

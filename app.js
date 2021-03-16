@@ -54,13 +54,14 @@ async function getScore(page){
     return [score1,score2]
 }
 async function scrapeScore(){
-    const browser= await pup.launch();
-    const page= await browser.newPage(); 
     while(1){
         playingGame = true;
         base_url = "https://www.mlb.com/yankees/scores";
         [date,searchDate] = await makeDate();
         full_url = base_url + date
+        const browser= await pup.launch();
+        const page= await browser.newPage(); 
+        await page.setDefaultNavigationTimeout(0);
         //console.log(full_url);
         while(playingGame){
             var d1 = new Date();
@@ -83,7 +84,8 @@ async function scrapeScore(){
                         console.log(team1,team2)
                     if(team1[0]!="Y" && team2[0]!="Y"){
                         playingGame = false;
-                        console.log("Yankees are not playing today")
+                        console.log("Yankees are not playing today");
+                        browser.close();
                         while(d1.getDate()==searchDate){
                             var d1 = new Date();
                             await sleep(1800000);
@@ -126,6 +128,7 @@ async function scrapeScore(){
                             console.log("Yankees won :(")
                         }
                         playingGame = false;
+                        browser.close();
                         while(d1.getDate() == searchDate){
                             var d1 = new Date();
                             await sleep(1800000);
@@ -137,6 +140,7 @@ async function scrapeScore(){
                     }
                     else if(playing.includes("POSTPONED")){
                         playingGame = false;
+                        browser.close();
                         console.log("Game is postponed")
                         while(d1.getDate()==searchDate){
                             var d1 = new Date();
@@ -177,6 +181,7 @@ async function scrapeScore(){
                     console.log(playing,team1,team2)
                     if(team1[0]!="Y" && team2[0]!="Y"){
                         playingGame = false;
+                        browser.close();
                         while(d1.getDate()==searchDate){
                             var d1 = new Date();
                             await sleep(1800000);
@@ -215,6 +220,7 @@ async function scrapeScore(){
                             writeTweet(message2);
                         }
                         playingGame = false;
+                        browser.close();
                         while(d1.getDate()==searchDate){
                             var d1 = new Date();
                             await sleep(1800000);
@@ -227,6 +233,7 @@ async function scrapeScore(){
                     else if(playing.includes("POSTPONED")){
                         playingGame = false;
                         console.log("Game is postponed");
+                        browser.close();
                         while(d1.getDate()==searchDate){
                             var d1 = new Date();
                             await sleep(1800000);
@@ -250,7 +257,6 @@ async function scrapeScore(){
         }
     }
     //console.log(score1, score2);
-    browser.close();
     
     //return playing,team1,score1,team2,score2;
     

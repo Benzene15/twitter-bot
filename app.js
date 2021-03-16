@@ -87,12 +87,14 @@ async function scrapeScore(){
                         console.log("Yankees are not playing today");
                         browser.close();
                         while(d1.getDate()==searchDate){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getDate())
                         }
                         while(d1.getHours()<8){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getHours())
                         }
                     }
                     else if(playing.includes("Final")){
@@ -129,13 +131,15 @@ async function scrapeScore(){
                         }
                         playingGame = false;
                         browser.close();
-                        while(d1.getDate() == searchDate){
-                            var d1 = new Date();
+                        while(d1.getDate()==searchDate){
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getDate())
                         }
                         while(d1.getHours()<8){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getHours())
                         }
                     }
                     else if(playing.includes("POSTPONED")){
@@ -143,12 +147,14 @@ async function scrapeScore(){
                         browser.close();
                         console.log("Game is postponed")
                         while(d1.getDate()==searchDate){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getDate())
                         }
                         while(d1.getHours()<8){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getHours())
                         }
                     }
                     else{
@@ -183,12 +189,14 @@ async function scrapeScore(){
                         playingGame = false;
                         browser.close();
                         while(d1.getDate()==searchDate){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getDate())
                         }
                         while(d1.getHours()<8){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getHours())
                         }
                     }
                     else if(playing.includes("Final")){
@@ -222,12 +230,14 @@ async function scrapeScore(){
                         playingGame = false;
                         browser.close();
                         while(d1.getDate()==searchDate){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getDate())
                         }
                         while(d1.getHours()<8){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getHours())
                         }
                     }
                     else if(playing.includes("POSTPONED")){
@@ -235,12 +245,14 @@ async function scrapeScore(){
                         console.log("Game is postponed");
                         browser.close();
                         while(d1.getDate()==searchDate){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getDate())
                         }
                         while(d1.getHours()<8){
-                            var d1 = new Date();
                             await sleep(1800000);
+                            var d1 = new Date();
+                            console.log(d1.getHours())
                         }
                     }
                     else{

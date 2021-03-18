@@ -91,7 +91,7 @@ async function scrapeScore(){
                             var d1 = new Date();
                             console.log(d1.getDate())
                         }
-                        while(d1.getHours()<8){
+                        while(d1.getHours()<13){
                             await sleep(1800000);
                             var d1 = new Date();
                             console.log(d1.getHours())
@@ -136,7 +136,7 @@ async function scrapeScore(){
                             var d1 = new Date();
                             console.log(d1.getDate())
                         }
-                        while(d1.getHours()<8){
+                        while(d1.getHours()<13){
                             await sleep(1800000);
                             var d1 = new Date();
                             console.log(d1.getHours())
